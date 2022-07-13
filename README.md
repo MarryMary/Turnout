@@ -27,9 +27,19 @@ All method arguments are common.
 Method::get('/', function(){ echo "hello, world!"; });
 ```  
 This is the simplest example.  
-If user access 「https://foo.bar/」, PHP is say「hello, world!」  
+If user access 「 http://localhost/ 」, PHP is say「hello, world!」  
 
 ```php
 Method::get('/hello/:sample', function($variables){ echo $variables['sample'] });
 ```  
-In the following example, the parameter is received by URL.  
+You can get the URL parameter by prefixing it with ":" in the URL specification.  
+If you set one argument to the anonymous function of the second argument, you can get an array of URL parameters whose argument is the word after:.  
+Also, if the URL parameter is not included in the URL, it will be recognized that the URL does not match.  
+If user access「 http://localhost/hello 」, routing not match.  
+If user access「 http://localhost/hello/Test 」, PHP is say 「Test」.  
+
+```php
+Method::get('/hello2/?sample', function($variables){ echo $variables['sample'] });
+```  
+This example looks similar to the previous one, but a little different.  
+By specifying the argument as "?" Instead of ":", access is possible even if the accessing user does not include the parameter in the URL.  
