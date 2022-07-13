@@ -31,7 +31,7 @@ This is the simplest example.
 If user access 「 http://localhost/ 」, PHP is say「hello, world!」  
 
 ```php
-Method::get('/hello/:sample', function($variables){ echo $variables['sample'] });
+Method::get('/hello/:sample', function($variables){ echo $variables['sample']; });
 ```  
 You can get the URL parameter by prefixing it with ":" in the URL specification.  
 If you set one argument to the anonymous function of the second argument, you can get an array of URL parameters whose argument is the word after:.  
@@ -40,7 +40,13 @@ If user access「 http://localhost/hello 」, routing not match.
 If user access「 http://localhost/hello/Test 」, PHP is say 「Test」.  
 
 ```php
-Method::get('/hello2/?sample', function($variables){ echo $variables['sample'] });
+Method::get('/hello2/?sample', function($variables){ 
+    if(array_key_exists("sample", $value)){
+        echo "あなたがURLに入れた文字は「".$value["sample"]."」です。";
+    }else{
+        echo "あなたはURLに何も入力しませんでした。";
+    } 
+});
 ```  
 This example looks similar to the previous one, but a little different.  
 By specifying the argument as "?" Instead of ":", access is possible even if the accessing user does not include the parameter in the URL.  
