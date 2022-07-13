@@ -10,7 +10,7 @@ class Method{
             $router = new Turnout($routing);
             $result = $router->RouterCore();
             if($result){
-                $function();
+                $function($router->RouteVariable());
             }else{
                 return false;
             }
@@ -38,7 +38,7 @@ class Method{
             $router = new Turnout($routing);
             $result = $router->RouterCore();
             if($result){
-                $function();
+                $function($router->RouteVariable());
             }else{
                 return false;
             }
@@ -52,7 +52,7 @@ class Method{
             $router = new Turnout($routing);
             $result = $router->RouterCore();
             if($result){
-                $function();
+                $function($router->RouteVariable());
             }else{
                 return false;
             }
@@ -65,7 +65,7 @@ class Method{
         $router = new Turnout($routing);
         $result = $router->RouterCore();
         if($result){
-            $function();
+            $function($router->RouteVariable());
         }else{
             return false;
         }
