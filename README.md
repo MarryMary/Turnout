@@ -1,6 +1,7 @@
 # Turnout PHP Routing System
 Web routing system for PHP scripts.  
 # Usage
+please include composer's 「autoload.php」 and namespace 「Fratello\Henrietta\Router\Method」
   
 ## methods
 Turnout router is having 5 methods.  
