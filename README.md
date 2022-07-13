@@ -30,6 +30,7 @@ Method::get('/', function(){ echo "hello, world!"; });
 This is the simplest example.  
 If user access 「 http://localhost/ 」, PHP is say「hello, world!」  
 
+## Parameter setting (Strict)
 ```php
 Method::get('/hello/:sample', function($variables){ echo $variables['sample']; });
 ```  
@@ -39,6 +40,7 @@ Also, if the URL parameter is not included in the URL, it will be recognized tha
 If user access「 http://localhost/hello 」, routing not match.  
 If user access「 http://localhost/hello/Test 」, PHP is say 「Test」.  
 
+## Parameter setting (loose)
 ```php
 Method::get('/hello2/?sample', function($variables){ 
     if(array_key_exists("sample", $value)){
